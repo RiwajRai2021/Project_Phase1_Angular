@@ -3,7 +3,7 @@ export class Client {
     public id: number,
     public name: string,
     public email: string,
-    public address: string,
-    public password: string
+    public password: string,
+    public retype_password: string
   ) {}
 }

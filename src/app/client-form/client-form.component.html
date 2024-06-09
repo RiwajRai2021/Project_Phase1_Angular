@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Client Form</h1>
-  <form #clientForm="ngForm">
+  <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
       <input
@@ -22,21 +22,17 @@
       </div>
     </div>
     <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
+      <label for="email" class="form-label">Email</label>
       <input
         type="email"
         class="form-control"
         id="email"
         aria-describedby="emailHelp"
         [(ngModel)]="model.email"
-        email="email"
+        name="email"
         required
         #email="ngModel"
       />
-      TODO: remove this: {{ model.email }}
-      <div id="emailHelp" class="form-text">
-        We'll never share your email with anyone else.
-      </div>
       <div
         class="alert alert-danger"
         role="alert"
@@ -55,7 +51,39 @@
         name="password"
         required
       />
+      <div
+        class="alert alert-danger"
+        role="alert"
+        [hidden]="password.valid || password.pristine"
+      >
+        Password is required!
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Retype-Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          [(ngModel)]="model.retype_password"
+          name="password"
+          required
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          [hidden]="password.valid || password.pristine"
+        >
+          Password is required!
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!clientForm.form.valid"
+      >
+        Submit
+      </button>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

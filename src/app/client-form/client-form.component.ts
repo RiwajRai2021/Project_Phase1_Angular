@@ -6,6 +6,7 @@ import { Client } from '../client';
 @Component({
   selector: 'app-client-form',
   standalone: true,
+  //add your needed dependencies here for this  particular component.
   imports: [FormsModule, CommonModule],
   templateUrl: './client-form.component.html',
   styleUrl: './client-form.component.css',
@@ -15,14 +16,19 @@ export class ClientFormComponent {
   submitted: boolean = false;
   //property representing an object of Client class
   model: Client;
+  password: any;
   constructor() {
     //let model;
-    this.model = new Client(
-      -1,
-      'John Doe',
-      'john@doe.com',
-      '123 Main Street',
-      ''
-    );
+    this.model = new Client(-1, 'John Doe', 'john@doe.com', '', '');
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    console.log(this.model);
+  }
+
+  newClient() {
+    this.model = new Client(-1, '', '', '', '');
+    this.submitted = false;
   }
 }
