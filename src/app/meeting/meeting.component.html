@@ -1,1 +1,48 @@
-<p>meeting works!</p>
+<div class="container mt-5">
+  <h2>Meeting Schedule Form</h2>
+  <form (ngSubmit)="onSubmit()" #meetingForm="ngForm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Meeting Title</label>
+      <input
+        type="text"
+        id="title"
+        class="form-control"
+        formControlName="title"
+        placeholder="Enter meeting title"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="date" class="form-label">Date</label>
+      <input
+        type="date"
+        id="date"
+        class="form-control"
+        formControlName="date"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="time" class="form-label">Time</label>
+      <input
+        type="time"
+        id="time"
+        class="form-control"
+        formControlName="time"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="participants" class="form-label">Participants</label>
+      <input
+        type="text"
+        id="participants"
+        class="form-control"
+        formControlName="participants"
+        placeholder="Enter number of participants"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Schedule Meeting</button>
+  </form>
+</div>

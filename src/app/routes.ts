@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ClientFormComponent } from './client-form/client-form.component';
+import { MeetingFormComponent } from './meeting-form/meeting-form.component';
 import { MeetingComponent } from './meeting/meeting.component';
 
 const routeConfig: Routes = [
@@ -11,14 +12,15 @@ const routeConfig: Routes = [
   },
 
   {
-    path: 'meetings',
-    component: MeetingComponent,
-    data: { title: 'Create Meetings' }, // Use 'data' instead of 'title'
-  },
-  {
     path: 'clients',
     component: ClientFormComponent,
     data: { title: 'Create Clients' }, // Use 'data' instead of 'title'
+  },
+
+  {
+    path: 'meetings',
+    component: MeetingComponent,
+    data: { title: 'Create Meetings' }, // Use 'data' instead of 'title'
   },
 ];
 export default routeConfig;
