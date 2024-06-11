@@ -1,48 +1,77 @@
-<div class="container mt-5">
-  <h2>Meeting Schedule Form</h2>
+<!-- <p>meeting works!</p> -->
+<div class="container">
+  <h1>Meeting Form</h1>
+  <!-- <form #meetingForm="ngForm"> -->
   <form (ngSubmit)="onSubmit()" #meetingForm="ngForm">
     <div class="mb-3">
       <label for="title" class="form-label">Meeting Title</label>
       <input
         type="text"
+        class="form-control"
         id="title"
-        class="form-control"
-        formControlName="title"
-        placeholder="Enter meeting title"
+        [(ngModel)]="model.title"
+        name="title"
+        #title="ngModel"
+        required
       />
-    </div>
 
-    <div class="mb-3">
-      <label for="date" class="form-label">Date</label>
+      TODO:remove this:{{ model.title }}
+      <div
+        class="alert alert-danger"
+        role="alert"
+        [hidden]="title.valid || title.pristine"
+      >
+        Title is Required!
+      </div>
+      <div class="mb-3">
+        <label for="participants" class="form-label"
+          >Number of Participants</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="Participants"
+          [(ngModel)]="model.participants"
+          #participants="ngModel"
+          name="number"
+          required=""
+        />
+        TODO:remove this:{{ model.participants }}
+        <div
+          class="alert alert-danger"
+          role="alert"
+          [hidden]="participants.valid || participants.pristine"
+        >
+          Number of participants is Required!
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 form-check">
+      <label for="datetime" class="form-label">Start Time</label>
       <input
-        type="date"
-        id="date"
+        type="datetime-local"
         class="form-control"
-        formControlName="date"
+        id="datetime"
+        [(ngModel)]="model.startTime"
+        #datetime="ngModel"
+        name="dateTime"
+        required=""
       />
+      <div
+        class="alert alert-danger"
+        role="alert"
+        [hidden]="datetime.valid || datetime.pristine"
+      >
+        Start Time is required
+      </div>
     </div>
 
-    <div class="mb-3">
-      <label for="time" class="form-label">Time</label>
-      <input
-        type="time"
-        id="time"
-        class="form-control"
-        formControlName="time"
-      />
-    </div>
-
-    <div class="mb-3">
-      <label for="participants" class="form-label">Participants</label>
-      <input
-        type="text"
-        id="participants"
-        class="form-control"
-        formControlName="participants"
-        placeholder="Enter number of participants"
-      />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Schedule Meeting</button>
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!meetingForm.form.valid"
+    >
+      Submit
+    </button>
   </form>
 </div>

@@ -1,8 +1,10 @@
+import { Time } from '@angular/common';
+
 export class Meeting {
   constructor(
-    title: string,
-    participants: number,
-    time: number,
-    date: number
+    public title: string,
+    public participants: number,
+    // public time: Time,
+    public startTime: Date
   ) {}
 }

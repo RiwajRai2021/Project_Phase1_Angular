@@ -9,5 +9,5 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'Project_App';
+  title = 'Client_Meeting_Management';
 }

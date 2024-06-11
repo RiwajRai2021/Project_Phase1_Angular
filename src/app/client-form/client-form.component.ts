@@ -17,9 +17,10 @@ export class ClientFormComponent {
   //property representing an object of Client class
   model: Client;
   password: any;
+clientForm: any;
   constructor() {
     //let model;
-    this.model = new Client(-1, 'John Doe', 'john@doe.com', '', '');
+    this.model = new Client(-1, 'John Doe', 'john@doe.com', 'riwajrai');
   }
 
   onSubmit() {
@@ -28,7 +29,7 @@ export class ClientFormComponent {
   }
 
   newClient() {
-    this.model = new Client(-1, '', '', '', '');
+    this.model = new Client(-1, '', '', '');
     this.submitted = false;
   }
 }

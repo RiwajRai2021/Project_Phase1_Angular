@@ -49,17 +49,20 @@
         id="password"
         [(ngModel)]="model.password"
         name="password"
+        #password="ngModel"
         required
+        minlength="6"
       />
       <div
         class="alert alert-danger"
         role="alert"
         [hidden]="password.valid || password.pristine"
       >
-        Password is required!
+        Password is required!Must be at least six characters.
       </div>
+    </div>
 
-      <div class="mb-3">
+    <!-- <div class="mb-3">
         <label for="password" class="form-label">Retype-Password</label>
         <input
           type="password"
@@ -76,14 +79,13 @@
         >
           Password is required!
         </div>
-      </div>
-      <button
-        type="submit"
-        class="btn btn-primary"
-        [disabled]="!clientForm.form.valid"
-      >
-        Submit
-      </button>
-    </div>
+      </div> -->
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!clientForm.form.valid"
+    >
+      Submit
+    </button>
   </form>
 </div>

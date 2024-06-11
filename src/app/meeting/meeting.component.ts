@@ -15,8 +15,10 @@ export class MeetingComponent {
   submitted: boolean = false;
 
   model: Meeting;
+  participants: any;
+
   constructor() {
-    this.model = new Meeting(' ', ' ', '', '');
+    this.model = new Meeting('testString', -1, new Date());
   }
   onSubmit() {
     this.submitted = true;
