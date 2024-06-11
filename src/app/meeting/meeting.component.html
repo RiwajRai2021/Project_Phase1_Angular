@@ -2,7 +2,7 @@
 <div class="container">
   <h1>Meeting Form</h1>
   <!-- <form #meetingForm="ngForm"> -->
-  <form (ngSubmit)="onSubmit()" #meetingForm="ngForm">
+  <form (ngSubmit)="onSubmit(meetingForm)" #meetingForm="ngForm">
     <div class="mb-3">
       <label for="title" class="form-label">Meeting Title</label>
       <input

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Meeting } from '../meeting';
 import { Client } from '../client';
 
@@ -20,8 +20,16 @@ export class MeetingComponent {
   constructor() {
     this.model = new Meeting('testString', -1, new Date());
   }
-  onSubmit() {
-    this.submitted = true;
+  // onSubmit() {
+  //   this.submitted = true;
+  //   console.log(this.model);
+  // }
+
+  onSubmit(meetingForm: NgForm) {
+    // this.submitted = true; //redundant, as ngSubmit sets to true
     console.log(this.model);
+    this.model = new Meeting('testString', -1, new Date()); // Reset model
+    meetingForm.resetForm(); // Reset the form using ngForm directive method
+    this.submitted = false; // Reset submitted flag
   }
 }
